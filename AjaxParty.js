@@ -16,14 +16,15 @@ function addGiph(res) {
 }
 
 $("form").on("submit", async function(e) {
-    evt.preventDefault();
+    e.preventDefault();
 
     let searchTerm = $giphSearch.val();
     $giphSearch.val("");
-
+console.log("hi");
     const response = await axios.get("http://api.giphy.com/v1/gifs/search", {  
     params: {
         q: searchTerm,
+        api_key: "MhAodEJIJxQMxW9XqxKjyXfNYdLoOIym",
     }
 });
 addGiph(response.data);
